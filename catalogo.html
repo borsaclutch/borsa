@@ -13,74 +13,30 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Raleway:ital,wght@0,300;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/brand.css">
 <style>
-:root { --display: var(--body); }
-.catalog-intro { padding-top: clamp(2rem, 5vw, 3.5rem); }
-/* faixa de preços */
-.rates { border-bottom: 1px solid var(--line); }
-.rates .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .6rem 2rem; padding-block: 1.1rem; font-style: italic; }
-.rates .tiers { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; }
-.rates strong { font-family: var(--display); font-style: normal; font-weight: 600; font-size: 1.2rem; }
-
-/* catálogo */
-.catalog { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
-.head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.2rem; margin-bottom: 2rem; }
-.head h2 { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; font-style: italic; }
-.filters { display: flex; flex-wrap: wrap; gap: .5rem; }
-.chip { padding: .42rem .95rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-style: italic; font-size: .92rem; transition: border-color .2s, background .2s; }
-.chip:hover { border-color: var(--wine); }
-.chip[aria-pressed="true"] { background: var(--wine); color: var(--cream); border-color: var(--wine); }
-.count { margin: 0 0 1.5rem; font-style: italic; color: var(--ink-soft); font-size: .95rem; }
-
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16.5rem), 1fr)); gap: clamp(1.6rem, 3vw, 2.6rem) clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
-.card { min-width: 0; }
-.card button.open { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
-.shot { position: relative; aspect-ratio: 2 / 3; overflow: hidden; background: var(--velvet); }
-.shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .45s ease, transform .9s ease; }
-.shot img.alt { opacity: 0; }
-@media (hover: hover) {
-  .card:hover .shot img.alt { opacity: 1; }
-  .card:hover .shot img.main { transform: scale(1.03); }
-}
-.note { position: absolute; left: .8rem; top: .8rem; max-width: 70%; background: var(--note-bg); color: var(--note-ink); font-family: var(--hand); font-weight: 600; font-size: 1.28rem; line-height: 1.05; padding: .5rem .75rem .6rem; transform: rotate(-3deg); box-shadow: 0 5px 12px rgba(0,0,0,.35); }
-.card:nth-child(even) .note { left: auto; right: .8rem; transform: rotate(2.5deg); }
-.meta { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; padding-top: .8rem; }
-.meta .num { font-family: var(--display); font-weight: 600; font-size: 1.55rem; line-height: 1; }
-.meta .num small { font-family: var(--body); font-weight: 300; font-style: italic; font-size: .82rem; color: var(--ink-soft); margin-right: .35rem; }
-.meta .from { font-style: italic; font-size: .9rem; color: var(--ink-soft); white-space: nowrap; }
-.meta .from b { font-style: normal; font-weight: 500; font-size: 1.05rem; color: var(--accent); }
-.pricesm { margin: .15rem 0 0; font-style: italic; font-size: .9rem; color: var(--ink-soft); }
-
-/* ficha */
-dialog { padding: 0; border: 0; background: var(--paper); color: var(--ink); width: min(100% - 24px, 62rem); max-height: calc(100dvh - 24px); overflow: auto; box-shadow: 0 40px 100px rgba(0,0,0,.55); }
-dialog::backdrop { background: rgba(32, 3, 8, .78); backdrop-filter: blur(4px); }
-.sheet { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
-.sheet .pic { background: var(--velvet); position: relative; min-height: 0; }
-.sheet .pic img { width: 100%; height: 100%; max-height: calc(100dvh - 24px); object-fit: cover; aspect-ratio: 2 / 3; }
-.sheet .info { padding: clamp(1.4rem, 4vw, 2.6rem); display: flex; flex-direction: column; gap: 1.2rem; min-width: 0; }
-.sheet .kicker { margin: 0; font-style: italic; color: var(--ink-soft); }
-.sheet h3 { margin: -.6rem 0 0; font-family: var(--display); font-weight: 600; font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1; }
-.sheet .says { align-self: flex-start; background: var(--note-bg); color: var(--note-ink); font-family: var(--hand); font-weight: 600; font-size: 1.5rem; padding: .4rem .9rem .5rem; transform: rotate(-2deg); box-shadow: 0 4px 10px rgba(0,0,0,.25); border: 1px solid var(--line); }
-.thumbs { display: flex; gap: .6rem; }
-.thumbs button { width: 4.2rem; aspect-ratio: 2 / 3; padding: 0; border: 2px solid transparent; background: var(--velvet); cursor: pointer; overflow: hidden; opacity: .65; }
-.thumbs button[aria-pressed="true"] { border-color: var(--wine); opacity: 1; }
-.thumbs img { width: 100%; height: 100%; object-fit: cover; }
-table.price { width: 100%; border-collapse: collapse; font-style: italic; }
-table.price th, table.price td { text-align: left; padding: .7rem 0; border-bottom: 1px solid var(--line); font-weight: 300; }
-table.price td { text-align: right; font-family: var(--display); font-style: normal; font-weight: 600; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
-.sheet .fine { margin: 0; font-style: italic; font-size: .92rem; color: var(--ink-soft); }
-.sheet .actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: auto; }
-.close { position: absolute; top: .6rem; right: .6rem; z-index: 2; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 0; background: var(--paper); color: var(--ink); font-size: 1.4rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
-.nav-bag { display: flex; justify-content: space-between; gap: 1rem; font-style: italic; font-size: .92rem; }
-.nav-bag button { background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 700px) {
-  .sheet { grid-template-columns: 1fr; }
-  .sheet .pic img { max-height: 62dvh; aspect-ratio: auto; object-position: center; }
-}
-
-
+/* Catálogo: as páginas do PDF refeitas em HTML, mesmas posições, fotos e recortes, com texto de verdade. */
+.jump { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 3.6rem); z-index: 15; background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.jump .wrap { display: flex; gap: .5rem; overflow-x: auto; padding-block: .55rem; scrollbar-width: none; }
+.jump .wrap::-webkit-scrollbar { display: none; }
+.jump a { flex: none; padding: .3rem .8rem; border-radius: 999px; border: 1px solid var(--line); font-style: italic; font-size: .9rem; text-decoration: none; font-variant-numeric: lining-nums; }
+.jump a:hover, .jump a.on { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+.intro { padding-block: clamp(1.6rem, 4vw, 2.6rem) 1rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: .6rem 2rem; font-style: italic; }
+.intro h1 { margin: 0; font-weight: 300; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; }
+.intro p { margin: 0; color: var(--ink-soft); }
+.book { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.4rem, 3vw, 2.4rem); max-width: 64rem; margin-inline: auto; padding-bottom: clamp(2.5rem, 6vw, 4rem); list-style: none; }
+@media (max-width: 700px) { .book { grid-template-columns: minmax(0, 1fr); max-width: 30rem; } }
+.card { display: grid; gap: .7rem; align-content: start; scroll-margin-top: 7.5rem; }
+.pg { position: relative; aspect-ratio: 842.25 / 1190.25; overflow: hidden; container-type: inline-size; box-shadow: 0 1px 2px rgba(0,0,0,.12), 0 18px 40px -22px rgba(60,0,10,.45); }
+.pg img { position: absolute; display: block; max-width: none; }
+.pg .vec { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pg .r { position: absolute; }
+.pg .t { position: absolute; white-space: nowrap; font-style: italic; font-weight: 300; line-height: 1.12; font-variant-numeric: lining-nums; }
+.pg .t a { color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.cta { justify-self: start; padding: .5rem 1.1rem; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); font-style: italic; font-size: .92rem; text-decoration: none; transition: background .2s, color .2s; }
+.cta:hover { background: var(--accent); color: var(--cream); }
 </style>
 </head>
 <body>
@@ -89,196 +45,53 @@ table.price td { text-align: right; font-family: var(--display); font-style: nor
     <a href="index.html" aria-label="borsa, início"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"></a>
     <nav aria-label="principal">
       <a class="link" href="index.html">início</a>
-      <a class="link" href="catalogo.html" aria-current="page">catálogo</a>
-      <a class="link" href="#contato">contato</a>
       <a class="btn sm" data-wa href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar</a>
     </nav>
   </div>
 </header>
-<main>
-  <section class="rates" aria-label="valores">
-    <div class="wrap">
-      <span>aluguel de <strong>3 dias</strong> ou <strong>5 dias</strong></span>
-      <span class="tiers" id="tiers"></span>
-    </div>
-  </section>
-  <section class="catalog wrap" id="catalogo" aria-labelledby="cat-h">
-    <div class="head">
-      <h2 id="cat-h">catálogo atualizado</h2>
-      <div class="filters" id="filters" role="group" aria-label="filtrar por cor"></div>
-    </div>
-    <p class="count" id="count" aria-live="polite"></p>
-    <ul class="grid" id="grid"></ul>
-  </section>
-  <section class="contact on-wine" id="contato" aria-labelledby="ct-h">
-    <img class="ghostmark" src="assets/logo-deep.png" alt="" width="1736" height="528">
-    <div class="wrap">
-      <h2 id="ct-h">alugue a sua pelo número</h2>
-      <div class="phone">+55 61 99259-1023</div>
-      <p>fale conosco para mais fotos e informações de tamanho!</p>
-      <div class="row">
-        <a class="btn" data-wa href="https://wa.me/5561992591023" target="_blank" rel="noopener">chamar no whatsapp</a>
-        <button class="btn ghost" type="button" id="copy">copiar número</button>
-      </div>
-      <p>estamos ansiosas para fazer parte do seu convite!</p>
-    </div>
-  </section>
+<nav class="jump" aria-label="ir para a bolsa"><div class="wrap"><a href="#b061">061</a><a href="#b083">083</a><a href="#b011">011</a><a href="#b021">021</a><a href="#b084">084</a><a href="#b031">031</a><a href="#b041">041</a><a href="#b048">048</a><a href="#b082">082</a><a href="#b079">079</a><a href="#b091">091</a><a href="#b095">095</a><a href="#b067">067</a><a href="#b065">065</a><a href="#b085">085</a><a href="#b096">096</a><a href="#b092">092</a></div></nav>
+<main class="wrap">
+  <div class="intro"><h1>catálogo atualizado</h1><p>17 bolsas · aluguel de 3 ou 5 dias</p></div>
+  <div class="book">
+<article class="card cover" id="capa"><div class="pg" style="background:#fffdea" role="img" aria-label="capa do catálogo"><span class="sr">capa do catálogo</span><img src="assets/pg/o27.jpg" alt="" style="left:9.522%;top:6.333%;width:80.924%;height:85.864%" decoding="async" loading="eager"><span class="t" style="top:14.643%;font-size:7.998cqw;color:#fffdea;left:64.153%;transform:translateX(-50%);">catálogo</span><span class="t" style="top:19.934%;font-size:7.998cqw;color:#fffdea;left:64.153%;transform:translateX(-50%);">atualizado</span></div></article>
+<article class="card" id="b061"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 061"><span class="sr">bolsa 061. a primeira de muitas…</span><img src="assets/pg/o39.jpg" alt="Clutch dourada com nervuras em leque" style="left:15.592%;top:11.56%;width:68.727%;height:72.645%" decoding="async" loading="eager"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M56.15 73.60H315.19V374.72H56.15Z" fill="#dbd9d6"/></svg><img src="assets/pg/o43.jpg" alt="" style="left:8.06%;top:7.347%;width:27.545%;height:18.727%" decoding="async" loading="eager"><img src="assets/pg/o54.png" alt="" style="left:6.666%;top:4.262%;width:30.713%;height:27.214%" decoding="async" loading="eager"><img src="assets/pg/o60.png" alt="" style="left:71.952%;top:10.172%;width:3.027%;height:7.686%" decoding="async" loading="eager"><img src="assets/pg/o66.png" alt="" style="left:62.966%;top:27.047%;width:33.384%;height:22.238%" decoding="async" loading="eager"><img src="assets/pg/o72.png" alt="" style="left:70.152%;top:33.571%;width:23.681%;height:7.119%" decoding="async" loading="eager"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:15.858%;">bolsa 061:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:15.858%;">aluguel 3 dias: R$50,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:15.858%;">aluguel 5 dias: R$70,00</span></div><a class="cta" data-bag="061" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 061 pelo whatsapp</a></article>
+<article class="card" id="b083"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 083"><span class="sr">bolsa 083. fav da Letícia</span><img src="assets/pg/o84.jpg" alt="Bolsa verde-oliva plissada com alça redonda dourada" style="left:15.592%;top:11.572%;width:68.727%;height:72.949%" decoding="async" loading="eager"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M502.13 796.36H761.17V1097.47H502.13Z" fill="#dbd9d6"/><path d="M304.86 419.23L304.65 419.89C300.15 421.37 296.46 424.34 293.34 428.33C288.34 428.33 283.34 428.33 278.34 428.33C278.34 423.24 273.85 419.12 268.31 419.12C262.78 419.12 258.29 423.24 258.29 428.33L256.49 428.33L241.06 428.33C241.06 423.24 236.58 419.12 231.04 419.12C225.50 419.12 221.01 423.24 221.01 428.33L219.64 428.33L204.22 428.33C204.22 423.24 199.73 419.12 194.19 419.12C188.66 419.12 184.17 423.24 184.17 428.33L182.80 428.33L167.37 428.33C167.37 423.24 162.88 419.12 157.35 419.12C151.81 419.12 147.32 423.24 147.32 428.33L145.95 428.33L130.53 428.33C130.53 423.24 126.04 419.12 120.50 419.12C114.96 419.12 110.48 423.24 110.48 428.33C105.48 428.33 100.48 428.33 95.48 428.33C92.35 424.34 88.67 421.37 84.17 419.89L84.17 419.23L84.17 403.80C89.26 403.80 93.38 399.31 93.38 393.78C93.38 388.24 89.26 383.75 84.17 383.75L84.17 383.05L84.17 367.62C89.26 367.62 93.38 363.13 93.38 357.60C93.38 352.06 89.26 347.57 84.17 347.57L84.17 347.29C84.17 342.29 84.17 337.30 84.17 332.30C89.26 332.30 93.38 327.81 93.38 322.27C93.38 316.73 89.26 312.25 84.17 312.25L84.17 296.82L84.17 295.45C89.26 295.45 93.38 290.96 93.38 285.43C93.38 279.89 89.26 275.40 84.17 275.40L84.17 259.98L84.17 258.61C89.26 258.61 93.38 254.12 93.38 248.58C93.38 243.04 89.26 238.55 84.17 238.55L84.17 223.13L84.17 221.76C89.26 221.76 93.38 217.27 93.38 211.73C93.38 206.20 89.26 201.71 84.17 201.71L84.17 186.28L84.17 184.48C89.26 184.48 93.38 180.00 93.38 174.46C93.38 168.92 89.26 164.43 84.17 164.43C84.17 159.43 84.17 154.44 84.17 149.44L84.17 149.07C88.67 147.60 92.35 144.62 95.48 140.63C100.48 140.63 105.48 140.63 110.48 140.63C110.48 145.72 114.96 149.84 120.50 149.84C126.04 149.84 130.53 145.72 130.53 140.63L145.95 140.63L147.32 140.63C147.32 145.72 151.81 149.84 157.35 149.84C162.88 149.84 167.37 145.72 167.37 140.63L182.80 140.63L184.17 140.63C184.17 145.72 188.66 149.84 194.19 149.84C199.73 149.84 204.22 145.72 204.22 140.63L219.64 140.63L221.01 140.63C221.01 145.72 225.50 149.84 231.04 149.84C236.58 149.84 241.06 145.72 241.06 140.63L256.49 140.63L258.29 140.63C258.29 145.72 262.78 149.84 268.31 149.84C273.85 149.84 278.34 145.72 278.34 140.63C283.34 140.63 288.34 140.63 293.34 140.63C296.47 144.62 300.15 147.60 304.65 149.07L304.86 149.44C304.86 154.44 304.86 159.43 304.86 164.43C299.77 164.43 295.65 168.92 295.65 174.46C295.65 180.00 299.77 184.48 304.86 184.48L304.86 186.28L304.86 201.71C299.77 201.71 295.65 206.20 295.65 211.73C295.65 217.27 299.77 221.76 304.86 221.76L304.86 223.13L304.86 238.55C299.77 238.55 295.65 243.04 295.65 248.58C295.65 254.12 299.77 258.61 304.86 258.61L304.86 259.98L304.86 275.40C299.77 275.40 295.65 279.89 295.65 285.43C295.65 290.96 299.77 295.45 304.86 295.45L304.86 296.82L304.86 312.25C299.77 312.25 295.65 316.73 295.65 322.27C295.65 327.81 299.77 332.30 304.86 332.30C304.86 337.30 304.86 342.29 304.86 347.29L304.86 347.57C299.77 347.57 295.65 352.06 295.65 357.60C295.65 363.13 299.77 367.62 304.86 367.62L304.86 383.05L304.86 383.75C299.77 383.75 295.65 388.24 295.65 393.78C295.65 399.31 299.77 403.80 304.86 403.80L304.86 419.23Z" fill="#dbd9d6"/><path d="M109.33 280.62C107.76 248.86 108.96 212.73 108.21 176.58C107.91 161.99 108.50 161.30 123.23 162.87C143.44 165.03 163.57 162.59 183.77 163.56C204.43 164.56 225.14 164.20 245.82 164.28C254.04 164.31 262.30 164.31 270.45 163.57C276.46 163.03 277.80 165.76 277.87 170.45C278.12 185.54 278.65 200.65 278.60 215.74C278.43 265.05 277.07 314.34 277.88 363.68C278.07 374.74 277.71 385.80 278.19 396.85C278.46 403.11 277.21 405.42 269.63 405.38C238.09 405.19 206.55 406.12 175.00 406.27C154.12 406.37 133.21 404.81 112.37 406.65C108.62 406.98 107.92 404.61 107.95 401.73C108.00 396.84 107.86 391.94 108.12 387.06C109.92 353.07 108.79 319.02 109.33 280.62L109.33 280.62Z" fill="#a42435"/></svg><img src="assets/pg/o88.jpg" alt="" style="left:61.011%;top:68.05%;width:27.545%;height:18.737%" decoding="async" loading="eager"><img src="assets/pg/o60.png" alt="" style="left:24.63%;top:10.553%;width:3.027%;height:7.686%" decoding="async" loading="eager"><img src="assets/pg/o100.png" alt="" style="left:15.592%;top:17.717%;width:16.292%;height:12.347%" decoding="async" loading="eager"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:15.592%;">bolsa 083:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 3 dias: R$45,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 5 dias: R$63,00</span></div><a class="cta" data-bag="083" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 083 pelo whatsapp</a></article>
+<article class="card" id="b011"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 011"><span class="sr">bolsa 011</span><img src="assets/pg/o112.jpg" alt="Clutch dourada em formato de ovo" style="left:15.592%;top:11.618%;width:68.727%;height:72.949%" decoding="async" loading="lazy"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M482.45 107.74H741.50V408.86H482.45Z" fill="#dbd9d6"/></svg><img src="assets/pg/o117.jpg" alt="" style="left:58.675%;top:10.175%;width:27.545%;height:18.774%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:15.592%;">bolsa 011:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 3 dias: R$42,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 5 dias: R$58,00</span></div><a class="cta" data-bag="011" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 011 pelo whatsapp</a></article>
+<article class="card" id="b021"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 021"><span class="sr">bolsa 021. clássica</span><img src="assets/pg/o135.jpg" alt="Clutch prateada espelhada em formato de ovo" style="left:15.592%;top:11.572%;width:68.727%;height:72.949%" decoding="async" loading="lazy"><img src="assets/pg/o66.png" alt="" style="left:65.135%;top:13.962%;width:30.892%;height:20.537%" decoding="async" loading="lazy"><img src="assets/pg/o144.png" alt="" style="left:70.927%;top:22.985%;width:23.235%;height:5.481%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:15.592%;">bolsa 021:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 3 dias: R$42,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 5 dias: R$58,00</span></div><a class="cta" data-bag="021" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 021 pelo whatsapp</a></article>
+<article class="card" id="b084"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 084"><span class="sr">bolsa 084. o tchan do look</span><img src="assets/pg/o149.jpg" alt="Clutch bordada com paetês em tons de verde e fecho de cristal" style="left:15.592%;top:11.705%;width:68.727%;height:72.949%" decoding="async" loading="lazy"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M84.17 182.53H343.21V483.65H84.17Z" fill="#dbd9d6"/></svg><img src="assets/pg/o153.jpg" alt="" style="left:11.387%;top:16.478%;width:27.545%;height:18.737%" decoding="async" loading="lazy"><img src="assets/pg/o164.png" alt="" style="left:43.974%;top:9.078%;width:12.018%;height:6.300%" decoding="async" loading="lazy"><img src="assets/pg/o171.png" alt="" style="left:60.493%;top:86.768%;width:33.473%;height:4.095%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 084:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$52,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$72,00</span></div><a class="cta" data-bag="084" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 084 pelo whatsapp</a></article>
+<article class="card" id="b031"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 031"><span class="sr">bolsa 031. madrinha approved!</span><img src="assets/pg/o182.jpg" alt="Clutch franzida rosa clara com flores bordadas em paetês" style="left:15.544%;top:11.876%;width:68.460%;height:72.697%" decoding="async" loading="lazy"><img src="assets/pg/o164.png" alt="" style="left:44.448%;top:7.365%;width:12.018%;height:6.300%" decoding="async" loading="lazy"><img src="assets/pg/o187.png" alt="" style="left:13.57%;top:10.524%;width:27.954%;height:20.285%" decoding="async" loading="lazy"><img src="assets/pg/o190.jpg" alt="" style="left:53.983%;top:64.448%;width:37.914%;height:23.039%" decoding="async" loading="lazy"><img src="assets/pg/o196.png" alt="" style="left:18.362%;top:18.372%;width:18.339%;height:6.615%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:15.592%;">bolsa 031:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 3 dias: R$52,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 5 dias: R$72,00</span></div><a class="cta" data-bag="031" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 031 pelo whatsapp</a></article>
+<article class="card" id="b041"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 041"><span class="sr">bolsa 041. xodó da mamãe</span><img src="assets/pg/o208.jpg" alt="Clutch de acrílico vermelho marmorizado com fecho de argolas" style="left:15.592%;top:11.329%;width:68.994%;height:73.264%" decoding="async" loading="lazy"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M62.05 148.12H321.09V449.24H62.05Z" fill="#dbd9d6"/></svg><img src="assets/pg/o213.png" alt="" style="left:57.837%;top:9.386%;width:29.111%;height:21.104%" decoding="async" loading="lazy"><img src="assets/pg/o218.jpg" alt="" style="left:8.76%;top:13.589%;width:27.545%;height:18.723%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:15.592%;">bolsa 041:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 3 dias: R$50,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 5 dias: R$70,00</span></div><a class="cta" data-bag="041" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 041 pelo whatsapp</a></article>
+<article class="card" id="b048"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 048"><span class="sr">bolsa 048. preferida da Ingrid</span><img src="assets/pg/o259.jpg" alt="Clutch de veludo rosé bordada, com franja de plumas" style="left:16.266%;top:11.858%;width:68.076%;height:72.818%" decoding="async" loading="lazy"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M311.15 416.29L310.93 416.98C306.30 418.49 302.52 421.56 299.30 425.66C294.16 425.66 289.02 425.66 283.87 425.66C283.87 420.43 279.26 416.18 273.56 416.18C267.87 416.18 263.25 420.43 263.25 425.66L261.40 425.66L245.54 425.66C245.54 420.43 240.92 416.18 235.23 416.18C229.53 416.18 224.91 420.43 224.91 425.66L223.51 425.66L207.64 425.66C207.64 420.43 203.02 416.18 197.33 416.18C191.63 416.18 187.02 420.43 187.02 425.66L185.61 425.66L169.74 425.66C169.74 420.43 165.13 416.18 159.43 416.18C153.74 416.18 149.12 420.43 149.12 425.66L147.71 425.66L131.85 425.66C131.85 420.43 127.23 416.18 121.54 416.18C115.84 416.18 111.23 420.43 111.23 425.66C106.08 425.66 100.94 425.66 95.80 425.66C92.58 421.56 88.80 418.49 84.17 416.98L84.17 416.29L84.17 400.43C89.40 400.43 93.64 395.81 93.64 390.12C93.64 384.42 89.40 379.81 84.17 379.81L84.17 379.08L84.17 363.22C89.40 363.22 93.64 358.60 93.64 352.90C93.64 347.21 89.40 342.59 84.17 342.59L84.17 342.31C84.17 337.17 84.17 332.03 84.17 326.89C89.40 326.89 93.64 322.27 93.64 316.57C93.64 310.88 89.40 306.26 84.17 306.26L84.17 290.40L84.17 288.99C89.40 288.99 93.64 284.37 93.64 278.68C93.64 272.98 89.40 268.37 84.17 268.37L84.17 252.50L84.17 251.09C89.40 251.09 93.64 246.48 93.64 240.78C93.64 235.09 89.40 230.47 84.17 230.47L84.17 214.61L84.17 213.20C89.40 213.20 93.64 208.58 93.64 202.89C93.64 197.19 89.40 192.57 84.17 192.57L84.17 176.71L84.17 174.86C89.40 174.86 93.64 170.24 93.64 164.55C93.64 158.85 89.40 154.24 84.17 154.24C84.17 149.10 84.17 143.95 84.17 138.81L84.17 138.44C88.80 136.92 92.58 133.86 95.80 129.76C100.94 129.76 106.08 129.76 111.23 129.76C111.23 134.99 115.84 139.23 121.54 139.23C127.23 139.23 131.85 134.99 131.85 129.76L147.71 129.76L149.12 129.76C149.12 134.99 153.74 139.23 159.43 139.23C165.13 139.23 169.74 134.99 169.74 129.76L185.61 129.76L187.02 129.76C187.02 134.99 191.63 139.23 197.33 139.23C203.02 139.23 207.64 134.99 207.64 129.76L223.51 129.76L224.91 129.76C224.91 134.99 229.53 139.23 235.23 139.23C240.92 139.23 245.54 134.99 245.54 129.76L261.40 129.76L263.25 129.76C263.25 134.99 267.87 139.23 273.56 139.23C279.26 139.23 283.87 134.99 283.87 129.76C289.02 129.76 294.16 129.76 299.30 129.76C302.52 133.86 306.30 136.92 310.93 138.44L311.15 138.81C311.15 143.96 311.15 149.10 311.15 154.24C305.92 154.24 301.68 158.85 301.68 164.55C301.68 170.24 305.92 174.86 311.15 174.86L311.15 176.71L311.15 192.57C305.92 192.57 301.68 197.19 301.68 202.89C301.68 208.58 305.92 213.20 311.15 213.20L311.15 214.61L311.15 230.47C305.92 230.47 301.68 235.09 301.68 240.78C301.68 246.48 305.92 251.09 311.15 251.09L311.15 252.50L311.15 268.37C305.92 268.37 301.68 272.98 301.68 278.68C301.68 284.37 305.92 288.99 311.15 288.99L311.15 290.40L311.15 306.26C305.92 306.26 301.68 310.88 301.68 316.57C301.68 322.27 305.92 326.89 311.15 326.89C311.15 332.03 311.15 337.17 311.15 342.31L311.15 342.59C305.92 342.59 301.68 347.21 301.68 352.90C301.68 358.60 305.92 363.22 311.15 363.22L311.15 379.08L311.15 379.81C305.92 379.81 301.68 384.42 301.68 390.12C301.68 395.81 305.92 400.43 311.15 400.43L311.15 416.29Z" fill="#dbd9d6"/><path d="M110.04 273.74C108.43 241.07 109.67 203.91 108.90 166.73C108.59 151.73 109.19 151.01 124.34 152.63C145.13 154.85 165.83 152.34 186.61 153.34C207.86 154.37 229.16 154.00 250.43 154.08C258.88 154.11 267.38 154.11 275.76 153.35C281.94 152.79 283.32 155.60 283.40 160.42C283.65 175.95 284.20 191.48 284.14 207.01C283.97 257.72 282.57 308.42 283.41 359.16C283.59 370.54 283.23 381.92 283.72 393.28C284.00 399.72 282.72 402.10 274.92 402.05C242.47 401.86 210.04 402.81 177.59 402.96C156.12 403.07 134.61 401.46 113.17 403.36C109.32 403.70 108.60 401.26 108.63 398.30C108.68 393.27 108.54 388.22 108.80 383.21C110.66 348.26 109.50 313.23 110.04 273.74L110.04 273.74Z" fill="#cf2409"/></svg><img src="assets/pg/o60.png" alt="" style="left:25.272%;top:9.475%;width:3.116%;height:7.937%" decoding="async" loading="lazy"><img src="assets/pg/o263.jpg" alt="" style="left:65.394%;top:61.788%;width:26.796%;height:28.474%" decoding="async" loading="lazy"><img src="assets/pg/o268.png" alt="" style="left:15.592%;top:18.949%;width:16.470%;height:11.780%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:15.592%;">bolsa 048:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 3 dias: R$52,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:15.592%;">aluguel 5 dias: R$72,00</span></div><a class="cta" data-bag="048" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 048 pelo whatsapp</a></article>
+<article class="card" id="b082"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 082"><span class="sr">bolsa 082. perfeita pro brilho da noite</span><img src="assets/pg/o276.jpg" alt="Bolsa piramidal coberta de paetês dourados" style="left:16.093%;top:11.625%;width:68.266%;height:73.005%" decoding="async" loading="lazy"><img src="assets/pg/o280.jpg" alt="" style="left:64.221%;top:14.232%;width:28.833%;height:26.099%" decoding="async" loading="lazy"><img src="assets/pg/o60.png" alt="" style="left:68.964%;top:10.213%;width:3.116%;height:7.937%" decoding="async" loading="lazy"><img src="assets/pg/o66.png" alt="" style="left:3.443%;top:19.379%;width:33.384%;height:22.238%" decoding="async" loading="lazy"><img src="assets/pg/o286.png" alt="" style="left:11.888%;top:25.785%;width:19.318%;height:11.213%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 082:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$42,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$58,00</span></div><a class="cta" data-bag="082" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 082 pelo whatsapp</a></article>
+<article class="card" id="b079"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 079"><span class="sr">bolsa 079. pure elegância</span><img src="assets/pg/o298.jpg" alt="Clutch oval de acrílico perolado creme com fecho dourado" style="left:16.071%;top:11.778%;width:68.277%;height:72.816%" decoding="async" loading="lazy"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M475.62 769.73L731.18 727.40L780.38 1024.47L524.82 1066.80Z" fill="#dbd9d6"/></svg><img src="assets/pg/o60.png" alt="" style="left:68.852%;top:10.369%;width:3.116%;height:7.937%" decoding="async" loading="lazy"><img src="assets/pg/o304.jpg" alt="" style="left:57.384%;top:59.354%;width:32.951%;height:27.864%" decoding="async" loading="lazy"><img src="assets/pg/o316.png" alt="" style="left:77.748%;top:82.08%;width:13.143%;height:5.001%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 079:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$50,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$70,00</span></div><a class="cta" data-bag="079" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 079 pelo whatsapp</a></article>
+<article class="card" id="b091"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 091"><span class="sr">bolsa 091. essa vai com TUDO!</span><img src="assets/pg/o327.jpg" alt="Bolsa de malha metálica dourada com alça de corrente" style="left:16.08%;top:11.544%;width:68.260%;height:73.120%" decoding="async" loading="lazy"><img src="assets/pg/o60.png" alt="" style="left:69.022%;top:10.131%;width:3.116%;height:7.937%" decoding="async" loading="lazy"><img src="assets/pg/o66.png" alt="" style="left:60.146%;top:71.422%;width:33.384%;height:22.238%" decoding="async" loading="lazy"><img src="assets/pg/o331.jpg" alt="" style="left:4.562%;top:14.17%;width:23.969%;height:25.506%" decoding="async" loading="lazy"><img src="assets/pg/o338.png" alt="" style="left:70.594%;top:77.302%;width:15.757%;height:12.914%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 091:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$42,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$58,00</span></div><a class="cta" data-bag="091" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 091 pelo whatsapp</a></article>
+<article class="card" id="b095"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 095"><span class="sr">bolsa 095. queridinha do acervo</span><img src="assets/pg/o349.jpg" alt="Bolsa de paetês vermelhos em gota com alça de pérolas" style="left:16.081%;top:11.779%;width:68.287%;height:72.816%" decoding="async" loading="lazy"><img src="assets/pg/o164.png" alt="" style="left:44.047%;top:7.547%;width:12.374%;height:6.489%" decoding="async" loading="lazy"><img src="assets/pg/o353.jpg" alt="" style="left:5.639%;top:18.286%;width:35.924%;height:20.470%" decoding="async" loading="lazy"><img src="assets/pg/o359.png" alt="" style="left:66.86%;top:87.058%;width:17.449%;height:10.268%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 095:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$50,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$70,00</span></div><a class="cta" data-bag="095" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 095 pelo whatsapp</a></article>
+<article class="card" id="b067"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 067"><span class="sr">bolsa 067. quem não ama uma rosinha?</span><img src="assets/pg/o367.jpg" alt="Clutch retangular de acrílico rosa perolado" style="left:16.093%;top:11.597%;width:68.277%;height:73.005%" decoding="async" loading="lazy"><img src="assets/pg/o187.png" alt="" style="left:16.094%;top:10.184%;width:28.844%;height:20.915%" decoding="async" loading="lazy"><img src="assets/pg/o371.jpg" alt="" style="left:58.517%;top:8.932%;width:34.008%;height:28.285%" decoding="async" loading="lazy"><img src="assets/pg/o377.png" alt="" style="left:19.238%;top:17.473%;width:22.612%;height:11.213%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 067:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$52,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$72,00</span></div><a class="cta" data-bag="067" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 067 pelo whatsapp</a></article>
+<article class="card" id="b065"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 065"><span class="sr">bolsa 065. rouba a cena</span><img src="assets/pg/o388.jpg" alt="Clutch de acrílico verde marmorizado" style="left:16.061%;top:11.597%;width:68.295%;height:73.005%" decoding="async" loading="lazy"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M548.69 165.33H786.88V442.20H548.69Z" fill="#dbd9d6"/></svg><img src="assets/pg/o394.jpg" alt="" style="left:66.427%;top:14.919%;width:25.327%;height:17.264%" decoding="async" loading="lazy"><img src="assets/pg/o405.png" alt="" style="left:58.413%;top:8.139%;width:9.170%;height:8.378%" decoding="async" loading="lazy"><img src="assets/pg/o412.png" alt="" style="left:72.732%;top:32.455%;width:13.087%;height:3.843%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 065:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$52,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$72,00</span></div><a class="cta" data-bag="065" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 065 pelo whatsapp</a></article>
+<article class="card" id="b085"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 085"><span class="sr">bolsa 085. dá até dó de devolver</span><img src="assets/pg/o419.jpg" alt="Clutch prateada de strass escuro com alça de corrente" style="left:16.093%;top:11.597%;width:68.277%;height:73.005%" decoding="async" loading="lazy"><img src="assets/pg/o423.jpg" alt="" style="left:6.817%;top:56.138%;width:25.547%;height:25.317%" decoding="async" loading="lazy"><img src="assets/pg/o428.png" alt="" style="left:22.847%;top:9.476%;width:4.273%;height:9.260%" decoding="async" loading="lazy"><img src="assets/pg/o434.png" alt="" style="left:2.443%;top:3.764%;width:30.001%;height:15.686%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 085:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$45,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$63,00</span></div><a class="cta" data-bag="085" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 085 pelo whatsapp</a></article>
+<article class="card" id="b096"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 096"><span class="sr">bolsa 096. amada por muitas!</span><img src="assets/pg/o442.jpg" alt="Clutch coberta de pétalas de cetim cor champanhe" style="left:16.061%;top:11.597%;width:68.295%;height:73.005%" decoding="async" loading="lazy"><img src="assets/pg/o446.jpg" alt="" style="left:54.126%;top:14.308%;width:37.953%;height:23.848%" decoding="async" loading="lazy"><img src="assets/pg/o187.png" alt="" style="left:16.094%;top:10.184%;width:28.844%;height:20.915%" decoding="async" loading="lazy"><img src="assets/pg/o164.png" alt="" style="left:44.047%;top:7.756%;width:12.374%;height:6.489%" decoding="async" loading="lazy"><img src="assets/pg/o453.png" alt="" style="left:22.326%;top:16.939%;width:16.381%;height:9.323%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 096:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$50,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$70,00</span></div><a class="cta" data-bag="096" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 096 pelo whatsapp</a></article>
+<article class="card" id="b092"><div class="pg" style="background:#fffdea" role="img" aria-label="bolsa 092"><span class="sr">bolsa 092. sua próxima escolha</span><img src="assets/pg/o464.jpg" alt="Clutch de cristais âmbar em formato de flor" style="left:16.064%;top:11.597%;width:68.295%;height:73.005%" decoding="async" loading="lazy"><svg class="vec" viewBox="0 0 842.25 1190.2500499999999" preserveAspectRatio="none" aria-hidden="true"><path d="M548.69 165.33H786.88V442.20H548.69Z" fill="#dbd9d6"/></svg><img src="assets/pg/o468.jpg" alt="" style="left:66.427%;top:14.939%;width:25.327%;height:17.231%" decoding="async" loading="lazy"><img src="assets/pg/o60.png" alt="" style="left:69.022%;top:10.131%;width:3.116%;height:7.937%" decoding="async" loading="lazy"><img src="assets/pg/o476.png" alt="" style="left:72.166%;top:86.212%;width:23.146%;height:5.985%" decoding="async" loading="lazy"><span class="t" style="top:86.637%;font-size:3.603cqw;color:#3c3333;left:16.094%;">bolsa 092:</span><span class="t" style="top:89.166%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 3 dias: R$52,00</span><span class="t" style="top:91.695%;font-size:3.603cqw;color:#3c3333;left:16.094%;">aluguel 5 dias: R$72,00</span></div><a class="cta" data-bag="092" href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar a 092 pelo whatsapp</a></article>
+<article class="card" id="contato"><div class="pg" style="background:#850819" role="img" aria-label="contato"><span class="sr">contato</span><img src="assets/pg/o490.png" alt="" style="left:18.016%;top:-10.194%;width:81.903%;height:109.424%" decoding="async" loading="lazy"><span class="t" style="top:34.544%;font-size:4.352cqw;color:#fffdea;left:49.965%;transform:translateX(-50%);">alugue a sua pelo número:</span><span class="t" style="top:40.192%;font-size:6.120cqw;color:#fffdea;left:49.965%;transform:translateX(-50%);"><a href="https://wa.me/5561992591023" data-wa target="_blank" rel="noopener">+55 61 99259-1023</a></span><span class="t" style="top:49.618%;font-size:3.690cqw;color:#fffdea;left:49.965%;transform:translateX(-50%);">fale conosco para mais fotos e</span><span class="t" style="top:52.229%;font-size:3.690cqw;color:#fffdea;left:49.964%;transform:translateX(-50%);">informações de tamanho!!</span><span class="t" style="top:81.652%;font-size:4.352cqw;color:#fffdea;left:49.966%;transform:translateX(-50%);">estamos ansiosas para fazer</span><span class="t" style="top:84.731%;font-size:4.352cqw;color:#fffdea;left:49.963%;transform:translateX(-50%);">parte do seu convite!</span></div></article>
+  </div>
 </main>
 <footer><div class="wrap"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"><span>aluguel de bolsas de festa</span></div></footer>
-<dialog id="dlg" aria-labelledby="d-title">
-  <button class="close" type="button" id="close" aria-label="fechar">×</button>
-  <div class="sheet">
-    <div class="pic"><img id="d-img" alt="" width="1000" height="1500"></div>
-    <div class="info">
-      <p class="kicker">bolsa</p>
-      <h3 id="d-title"></h3>
-      <div class="says" id="d-note" hidden></div>
-      <div class="thumbs" id="d-thumbs"></div>
-      <table class="price">
-        <caption class="kicker" style="text-align:left;padding-bottom:.3rem">valores do aluguel</caption>
-        <tbody>
-          <tr><th scope="row">3 dias</th><td id="d-p3"></td></tr>
-          <tr><th scope="row">5 dias</th><td id="d-p5"></td></tr>
-        </tbody>
-      </table>
-      <p class="fine">chame a gente para ver mais fotos e saber o tamanho.</p>
-      <div class="actions">
-        <a class="btn" id="d-wa" target="_blank" rel="noopener" href="https://wa.me/5561992591023">alugar esta pelo whatsapp</a>
-      </div>
-      <div class="nav-bag">
-        <button type="button" id="d-prev">← anterior</button>
-        <button type="button" id="d-next">próxima →</button>
-      </div>
-    </div>
-  </div>
-</dialog>
 <script>
 (function () {
-  var PHONE = "5561992591023";
-  var BAGS = [
-    { n: "061", p3: 50, p5: 70, cor: "dourada", note: "a primeira de muitas…", alt: "Clutch dourada com nervuras em leque, sobre veludo vinho" },
-    { n: "083", p3: 45, p5: 63, cor: "verde", note: "fav da Letícia", alt: "Bolsa verde-oliva plissada com alça redonda dourada" },
-    { n: "011", p3: 42, p5: 58, cor: "dourada", note: "", alt: "Clutch dourada em formato de ovo, sobre bandeja prateada" },
-    { n: "021", p3: 42, p5: 58, cor: "prata", note: "clássica", alt: "Clutch prateada espelhada em formato de ovo" },
-    { n: "084", p3: 52, p5: 72, cor: "verde", note: "o tchan do look", alt: "Clutch bordada com paetês em tons de verde e fecho de cristal" },
-    { n: "031", p3: 52, p5: 72, cor: "rosa", note: "madrinha approved!", alt: "Clutch franzida rosa clara com flores bordadas em paetês" },
-    { n: "041", p3: 50, p5: 70, cor: "vermelha", note: "xodó da mamãe", alt: "Clutch de acrílico vermelho marmorizado com fecho de argolas" },
-    { n: "048", p3: 52, p5: 72, cor: "neutra", note: "preferida da Ingrid", alt: "Clutch de veludo rosé bordada, com franja de plumas" },
-    { n: "082", p3: 42, p5: 58, cor: "dourada", note: "perfeita pro brilho da noite", alt: "Bolsa piramidal coberta de paetês dourados com alça de strass" },
-    { n: "079", p3: 50, p5: 70, cor: "neutra", note: "pure elegância", alt: "Clutch oval de acrílico perolado creme com fecho dourado" },
-    { n: "091", p3: 42, p5: 58, cor: "dourada", note: "essa vai com TUDO!", alt: "Bolsa de malha metálica dourada com alça de corrente" },
-    { n: "095", p3: 50, p5: 70, cor: "vermelha", note: "queridinha do acervo ♡", alt: "Bolsa de paetês vermelhos em gota com alça de pérolas" },
-    { n: "067", p3: 52, p5: 72, cor: "rosa", note: "quem não ama uma rosinha?", alt: "Clutch retangular de acrílico rosa perolado" },
-    { n: "065", p3: 52, p5: 72, cor: "verde", note: "rouba a cena", alt: "Clutch de acrílico verde marmorizado" },
-    { n: "085", p3: 45, p5: 63, cor: "prata", note: "dá até dó de devolver", alt: "Clutch prateada de strass escuro com alça de corrente" },
-    { n: "096", p3: 50, p5: 70, cor: "neutra", note: "amada por muitas!", alt: "Clutch coberta de pétalas de cetim cor champanhe" },
-    { n: "092", p3: 52, p5: 72, cor: "dourada", note: "sua próxima escolha ♡", alt: "Clutch de cristais âmbar em formato de flor, sobre bandeja prateada" }
-  ];
-  BAGS.forEach(function (b) { b.alts = ["assets/" + b.n + ".jpg"]; });
-  var HAS_B = { "061":1,"083":1,"011":1,"084":1,"031":1,"041":1,"048":1,"082":1,"079":1,"091":1,"095":1,"067":1,"065":1,"085":1,"096":1,"092":1 };
-  BAGS.forEach(function (b) { if (HAS_B[b.n]) b.alts.push("assets/" + b.n + "-b.jpg"); });
-
-  var COLORS = [
-    ["todas", null], ["douradas", "dourada"], ["pratas", "prata"],
-    ["vermelhas", "vermelha"], ["rosas", "rosa"], ["verdes", "verde"], ["neutras", "neutra"]
-  ];
-  var brl = function (v) { return "R$" + v.toFixed(2).replace(".", ","); };
-  var $ = function (id) { return document.getElementById(id); };
-  var grid = $("grid"), count = $("count"), dlg = $("dlg");
-  var current = null, list = BAGS.slice(), idx = 0;
-
-  function waLink(text) { return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text); }
-  document.querySelectorAll("[data-wa]").forEach(function (a) {
-    a.href = waLink("Oi! Vi o catálogo da borsa e quero alugar uma bolsa.");
-  });
-
-  // faixa de valores
-  var prices = BAGS.map(function (b) { return b.p3; }), prices5 = BAGS.map(function (b) { return b.p5; });
-  $("tiers").innerHTML =
-    "<span>3 dias a partir de <strong>" + brl(Math.min.apply(null, prices)) + "</strong></span>" +
-    "<span>5 dias a partir de <strong>" + brl(Math.min.apply(null, prices5)) + "</strong></span>";
-
-  // filtros
-  var fwrap = $("filters");
-  COLORS.forEach(function (c, i) {
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "chip"; b.textContent = c[0];
-    b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
-    b.addEventListener("click", function () {
-      fwrap.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
-      b.setAttribute("aria-pressed", "true");
-      list = c[1] ? BAGS.filter(function (x) { return x.cor === c[1]; }) : BAGS.slice();
-      render();
-    });
-    fwrap.appendChild(b);
-  });
-
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]; }); }
-
-  function render() {
-    count.textContent = list.length === 1 ? "1 bolsa" : list.length + " bolsas";
-    grid.innerHTML = list.map(function (b, i) {
-      return '<li class="card"><button class="open" type="button" data-i="' + i + '" aria-label="ver bolsa ' + b.n + '">' +
-        '<div class="shot"><img class="main" src="' + b.alts[0] + '" alt="' + esc(b.alt) + '" width="1000" height="1500" loading="' + (i < 4 ? "eager" : "lazy") + '">' +
-        (b.alts[1] ? '<img class="alt" src="' + b.alts[1] + '" alt="" width="700" height="1000" loading="lazy">' : "") +
-        (b.note ? '<span class="note">' + esc(b.note) + "</span>" : "") + "</div>" +
-        '<div class="meta"><span class="num"><small>bolsa</small>' + b.n + '</span><span class="from">a partir de <b>' + brl(b.p3) + "</b></span></div>" +
-        '<p class="pricesm">3 dias ' + brl(b.p3) + " · 5 dias " + brl(b.p5) + "</p></button></li>";
-    }).join("");
+  var wa = function (t) { return "https://wa.me/5561992591023?text=" + encodeURIComponent(t); };
+  document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = wa("Oi! Vi o catálogo da borsa e quero alugar uma bolsa."); });
+  document.querySelectorAll("[data-bag]").forEach(function (a) { a.href = wa("Oi! Quero alugar a bolsa " + a.dataset.bag + " do catálogo da borsa."); });
+  var chips = {}; document.querySelectorAll(".jump a").forEach(function (a) { chips[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting || !chips[e.target.id]) return;
+        document.querySelectorAll(".jump a.on").forEach(function (x) { x.classList.remove("on"); });
+        var c = chips[e.target.id]; c.classList.add("on");
+        var box = c.parentNode; box.scrollTo({ left: c.offsetLeft - box.clientWidth / 2 + c.clientWidth / 2, behavior: "smooth" });
+      });
+    }, { rootMargin: "-40% 0px -40% 0px" });
+    document.querySelectorAll(".card").forEach(function (c) { io.observe(c); });
   }
-  grid.addEventListener("click", function (e) {
-    var t = e.target.closest("button.open");
-    if (t) openBag(+t.dataset.i);
-  });
-
-  // ficha
-  var photo = 0;
-  function show() {
-    var b = list[idx]; current = b; photo = 0;
-    $("d-title").textContent = b.n;
-    var note = $("d-note"); note.hidden = !b.note; note.textContent = b.note;
-    $("d-p3").textContent = brl(b.p3); $("d-p5").textContent = brl(b.p5);
-    $("d-wa").href = waLink("Oi! Quero alugar a bolsa " + b.n + " do catálogo da borsa.");
-    var th = $("d-thumbs"); th.innerHTML = "";
-    b.alts.forEach(function (src, i) {
-      if (b.alts.length < 2) return;
-      var btn = document.createElement("button");
-      btn.type = "button"; btn.setAttribute("aria-label", "foto " + (i + 1));
-      btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
-      btn.innerHTML = '<img src="' + src + '" alt="">';
-      btn.addEventListener("click", function () { setPhoto(i); });
-      th.appendChild(btn);
-    });
-    setPhoto(0);
-  }
-  function setPhoto(i) {
-    photo = i;
-    var img = $("d-img"); img.src = current.alts[i]; img.alt = i === 0 ? current.alt : "Bolsa " + current.n + " na mão";
-    $("d-thumbs").querySelectorAll("button").forEach(function (x, k) { x.setAttribute("aria-pressed", k === i ? "true" : "false"); });
-  }
-  function openBag(i) { idx = i; show(); if (!dlg.open) dlg.showModal(); }
-  function step(d) { idx = (idx + d + list.length) % list.length; show(); }
-  $("d-prev").addEventListener("click", function () { step(-1); });
-  $("d-next").addEventListener("click", function () { step(1); });
-  $("close").addEventListener("click", function () { dlg.close(); });
-  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowRight") step(1);
-    if (e.key === "ArrowLeft") step(-1);
-  });
-
-  // copiar número
-  $("copy").addEventListener("click", function () {
-    var btn = this, txt = "+55 61 99259-1023";
-    function done() { btn.textContent = "número copiado"; setTimeout(function () { btn.textContent = "copiar número"; }, 2000); }
-    try { navigator.clipboard.writeText(txt).then(done, function () { sel(); }); } catch (e) { sel(); }
-    function sel() {
-      var r = document.createRange(); r.selectNodeContents(document.querySelector(".contact .phone"));
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-    }
-  });
-
-  render();
 })();
 </script>
 </body>
