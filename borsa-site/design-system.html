@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>borsa design system</title>
+<meta name="description" content="Cores, tipografia, logo e recortes da marca borsa, extraídos do catálogo em PDF.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Raleway:ital,wght@0,300;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Ficha técnica da marca: uma página de referência, seções separadas por régua fina. */
+h1, h2, h3 { font-style: italic; font-weight: 300; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); }
+h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+section.ds { padding-block: clamp(2.2rem, 5vw, 3.5rem); border-top: 1px solid var(--line); }
+.lead { font-style: italic; font-size: 1.1rem; max-width: 36rem; color: var(--ink-soft); margin: .8rem 0 0; }
+.k { font-style: italic; font-size: .88rem; color: var(--ink-soft); }
+.grid { display: grid; gap: 1rem; margin-top: 1.6rem; }
+.sw { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); }
+.chipc { border: 1px solid var(--line); }
+.chipc .c { height: 6rem; }
+.chipc .t { padding: .7rem .8rem .8rem; display: grid; gap: .15rem; }
+.chipc b { font-weight: 500; font-style: italic; }
+.chipc code, code { font: 400 .85rem/1.4 ui-monospace, Menlo, Consolas, monospace; color: var(--ink-soft); }
+.logos { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.lg { padding: 2.2rem 1.6rem; display: grid; place-items: center; gap: .8rem; border: 1px solid var(--line); }
+.lg img { height: 2.8rem; width: auto; display: block; }
+.lg.w { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+.lg.c { background: var(--cream); color: var(--ink); }
+.lg.v { background: var(--velvet); color: var(--cream); border-color: var(--velvet); }
+.type .row { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; align-items: baseline; padding-block: 1rem; border-bottom: 1px solid var(--line); }
+.type .row:last-child { border-bottom: 0; }
+@media (max-width: 600px) { .type .row { grid-template-columns: 1fr; gap: .2rem; } }
+.s-cap { font-style: italic; font-weight: 300; font-size: 1.1rem; line-height: 1.35; }
+.stick { grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.stick .box { background: var(--wine); min-height: 11rem; display: grid; place-items: center; padding: 1.5rem; position: relative; }
+.stick .box.light { background: var(--paper-2); }
+.stick img { max-height: 7.5rem; width: auto; }
+.demo { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; margin-top: 1.4rem; }
+.chip { padding: .42rem .95rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; font-style: italic; font-size: .92rem; }
+.chip.on { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+.voice { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.voice div { border: 1px solid var(--line); padding: 1.1rem 1.2rem; font-style: italic; }
+.voice .do::before, .voice .dont::before { display: block; font-size: .85rem; margin-bottom: .3rem; font-style: italic; color: var(--ink-soft); }
+.voice .do::before { content: "pode"; }
+.voice .dont::before { content: "evite"; }
+.price-line { font-style: italic; font-weight: 300; font-size: 1.1rem; line-height: 1.35; }
+.ex { margin-top: 1.4rem; display: grid; gap: .3rem; max-width: 24rem; }
+.hero-ex { background: var(--wine); color: var(--cream); padding: 2rem; font-style: italic; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; position: relative; overflow: hidden; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a href="index.html" aria-label="borsa, início"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"></a>
+    <nav aria-label="principal"><a class="link" href="index.html">início</a><a class="link" href="catalogo.html">catálogo</a></nav>
+  </div>
+</header>
+
+<main class="wrap" style="padding-block: clamp(2.5rem, 6vw, 4.5rem) 3rem">
+  <p class="k">design system · extraído do catálogo atualizado</p>
+  <h1>a borsa em um só lugar</h1>
+  <p class="lead">uma casa de bolsas de festa com cara de álbum de recortes: veludo, papel creme, bilhetes escritos à mão e letras leves em itálico.</p>
+
+  <section class="ds" aria-labelledby="cores">
+    <h2 id="cores">cores</h2>
+    <p class="lead">medidas direto no PDF: o fundo creme e o vinho da contracapa são os da marca. O verde e o laranja vêm das fotos.</p>
+    <div class="grid sw">
+      <div class="chipc"><div class="c" style="background:#fffdea"></div><div class="t"><b>creme</b><code>#fffdea</code><span class="k">fundo das páginas, texto sobre vinho</span></div></div>
+      <div class="chipc"><div class="c" style="background:#850819"></div><div class="t"><b>vinho</b><code>#850819</code><span class="k">cor principal, botões, contracapa</span></div></div>
+      <div class="chipc"><div class="c" style="background:#600000"></div><div class="t"><b>vinho fundo</b><code>#600000</code><span class="k">logo grande sobre vinho</span></div></div>
+      <div class="chipc"><div class="c" style="background:#0f3a2c"></div><div class="t"><b>veludo verde</b><code>#0f3a2c</code><span class="k">moldura das fotos</span></div></div>
+      <div class="chipc"><div class="c" style="background:#e4411f"></div><div class="t"><b>etiqueta</b><code>#e4411f</code><span class="k">detalhes e etiquetas, uso raro</span></div></div>
+      <div class="chipc"><div class="c" style="background:#d8dcd4"></div><div class="t"><b>post-it</b><code>#d8dcd4</code><span class="k">bilhetes de recado</span></div></div>
+    </div>
+  </section>
+
+  <section class="ds" aria-labelledby="logo">
+    <h2 id="logo">logo</h2>
+    <p class="lead">"borsa" em serifa de alto contraste, minúsculo. No PDF aparece girado na contracapa; nos sites vai na horizontal. Só duas cores: vinho no creme, creme no vinho.</p>
+    <div class="grid logos">
+      <div class="lg c"><img src="assets/logo-wine.png" alt="logo borsa vinho" width="1736" height="528"><span class="k">vinho sobre creme</span></div>
+      <div class="lg w"><img src="assets/logo-cream.png" alt="logo borsa creme" width="1736" height="528"><span class="k" style="color:inherit;opacity:.8">creme sobre vinho</span></div>
+      <div class="lg w"><img src="assets/logo-deep.png" alt="logo borsa vinho fundo" width="1736" height="528" style="height:5rem"><span class="k" style="color:inherit;opacity:.8">vinho fundo, grande, como marca d'água</span></div>
+    </div>
+  </section>
+
+  <section class="ds type" aria-labelledby="tipo">
+    <h2 id="tipo">tipografia</h2>
+    <p class="lead">uma família só, <b style="font-weight:500">Raleway</b>, sempre em itálico leve e minúsculo. Recados escritos à mão usam Caveat nos sites; no PDF são a letra de verdade.</p>
+    <div class="row"><span class="k">título · Raleway itálico 300</span><span style="font-style:italic;font-weight:300;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05">catálogo atualizado</span></div>
+    <div class="row"><span class="k">legenda · Raleway itálico 300</span><span class="s-cap">bolsa 061:<br>aluguel 3 dias: R$50,00<br>aluguel 5 dias: R$70,00</span></div>
+    <div class="row"><span class="k">texto · Raleway 300</span><span>clutches e bolsas de festa para alugar por 3 ou 5 dias. escolha a sua e combine tudo pelo WhatsApp.</span></div>
+    <div class="row"><span class="k">recado · Caveat 600</span><span style="font-family:var(--hand);font-weight:600;font-size:1.9rem;line-height:1.1">madrinha approved!</span></div>
+  </section>
+
+  <section class="ds" aria-labelledby="rec">
+    <h2 id="rec">recortes</h2>
+    <p class="lead">elementos de escritório que dão o jeito de álbum: clipe, prendedor, post-it, polaroid e selo. Os três primeiros foram extraídos do PDF.</p>
+    <div class="grid stick">
+      <div class="box"><img src="assets/clip.png" alt="clipe de papel" width="55" height="197"></div>
+      <div class="box"><img src="assets/binder.png" alt="prendedor" width="217" height="161"></div>
+      <div class="box light"><img src="assets/postit.png" alt="post-it" width="586" height="551"></div>
+      <div class="box light"><div class="polaroid" style="width:9rem;transform:rotate(-4deg)"><img src="assets/065-b.jpg" alt="" width="700" height="700"></div></div>
+    </div>
+    <p class="k" style="margin-top:.8rem">use no máximo dois por tela, sempre meio tortos e sobre a foto, nunca cobrindo a bolsa.</p>
+  </section>
+
+  <section class="ds" aria-labelledby="comp">
+    <h2 id="comp">componentes</h2>
+    <div class="demo">
+      <a class="btn" href="#comp">alugar esta pelo whatsapp</a>
+      <a class="btn ghost" href="#comp">ver catálogo</a>
+      <span class="chip on">todas</span><span class="chip">douradas</span><span class="chip">verdes</span>
+      <span class="note" style="transform:rotate(-3deg)">quem não ama uma rosinha?</span>
+    </div>
+    <div class="ex">
+      <span class="s-cap">bolsa 092</span>
+      <span class="price-line">3 dias R$52,00 · 5 dias R$72,00</span>
+    </div>
+    <p class="k" style="margin-top:1.2rem">botões são pílulas em itálico; só um botão cheio por tela. fotos são sempre em pé (2 por 3) com fundo veludo.</p>
+  </section>
+
+  <section class="ds" aria-labelledby="voz">
+    <h2 id="voz">voz</h2>
+    <p class="lead">próxima, animada e sem formalidade. frases curtas, tudo em minúsculo, com um "!" quando a bolsa merece.</p>
+    <div class="grid voice">
+      <div class="do">estamos ansiosas para fazer parte do seu convite!</div>
+      <div class="do">fale conosco para mais fotos e informações de tamanho!!</div>
+      <div class="dont">Entre em contato para obter informações adicionais sobre nossos produtos.</div>
+      <div class="dont">ALUGUE JÁ!!! OFERTA IMPERDÍVEL</div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"><span>design system · versão 1</span></div></footer>
+</body>
+</html>

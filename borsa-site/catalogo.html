@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>borsa catálogo</title>
+<meta name="description" content="Catálogo da borsa: 17 clutches e bolsas de festa para alugar por 3 ou 5 dias.">
+<meta property="og:title" content="borsa catálogo">
+<meta property="og:description" content="Clutches e bolsas de festa para alugar por 3 ou 5 dias.">
+<meta property="og:image" content="assets/capa.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Raleway:ital,wght@0,300;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+:root { --display: var(--body); }
+.catalog-intro { padding-top: clamp(2rem, 5vw, 3.5rem); }
+/* faixa de preços */
+.rates { border-bottom: 1px solid var(--line); }
+.rates .wrap { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .6rem 2rem; padding-block: 1.1rem; font-style: italic; }
+.rates .tiers { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; }
+.rates strong { font-family: var(--display); font-style: normal; font-weight: 600; font-size: 1.2rem; }
+
+/* catálogo */
+.catalog { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.2rem; margin-bottom: 2rem; }
+.head h2 { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1; font-style: italic; }
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip { padding: .42rem .95rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; cursor: pointer; font-style: italic; font-size: .92rem; transition: border-color .2s, background .2s; }
+.chip:hover { border-color: var(--wine); }
+.chip[aria-pressed="true"] { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+.count { margin: 0 0 1.5rem; font-style: italic; color: var(--ink-soft); font-size: .95rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16.5rem), 1fr)); gap: clamp(1.6rem, 3vw, 2.6rem) clamp(1rem, 2.4vw, 2rem); list-style: none; margin: 0; padding: 0; }
+.card { min-width: 0; }
+.card button.open { display: block; width: 100%; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+.shot { position: relative; aspect-ratio: 2 / 3; overflow: hidden; background: var(--velvet); }
+.shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .45s ease, transform .9s ease; }
+.shot img.alt { opacity: 0; }
+@media (hover: hover) {
+  .card:hover .shot img.alt { opacity: 1; }
+  .card:hover .shot img.main { transform: scale(1.03); }
+}
+.note { position: absolute; left: .8rem; top: .8rem; max-width: 70%; background: var(--note-bg); color: var(--note-ink); font-family: var(--hand); font-weight: 600; font-size: 1.28rem; line-height: 1.05; padding: .5rem .75rem .6rem; transform: rotate(-3deg); box-shadow: 0 5px 12px rgba(0,0,0,.35); }
+.card:nth-child(even) .note { left: auto; right: .8rem; transform: rotate(2.5deg); }
+.meta { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; padding-top: .8rem; }
+.meta .num { font-family: var(--display); font-weight: 600; font-size: 1.55rem; line-height: 1; }
+.meta .num small { font-family: var(--body); font-weight: 300; font-style: italic; font-size: .82rem; color: var(--ink-soft); margin-right: .35rem; }
+.meta .from { font-style: italic; font-size: .9rem; color: var(--ink-soft); white-space: nowrap; }
+.meta .from b { font-style: normal; font-weight: 500; font-size: 1.05rem; color: var(--accent); }
+.pricesm { margin: .15rem 0 0; font-style: italic; font-size: .9rem; color: var(--ink-soft); }
+
+/* ficha */
+dialog { padding: 0; border: 0; background: var(--paper); color: var(--ink); width: min(100% - 24px, 62rem); max-height: calc(100dvh - 24px); overflow: auto; box-shadow: 0 40px 100px rgba(0,0,0,.55); }
+dialog::backdrop { background: rgba(32, 3, 8, .78); backdrop-filter: blur(4px); }
+.sheet { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+.sheet .pic { background: var(--velvet); position: relative; min-height: 0; }
+.sheet .pic img { width: 100%; height: 100%; max-height: calc(100dvh - 24px); object-fit: cover; aspect-ratio: 2 / 3; }
+.sheet .info { padding: clamp(1.4rem, 4vw, 2.6rem); display: flex; flex-direction: column; gap: 1.2rem; min-width: 0; }
+.sheet .kicker { margin: 0; font-style: italic; color: var(--ink-soft); }
+.sheet h3 { margin: -.6rem 0 0; font-family: var(--display); font-weight: 600; font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1; }
+.sheet .says { align-self: flex-start; background: var(--note-bg); color: var(--note-ink); font-family: var(--hand); font-weight: 600; font-size: 1.5rem; padding: .4rem .9rem .5rem; transform: rotate(-2deg); box-shadow: 0 4px 10px rgba(0,0,0,.25); border: 1px solid var(--line); }
+.thumbs { display: flex; gap: .6rem; }
+.thumbs button { width: 4.2rem; aspect-ratio: 2 / 3; padding: 0; border: 2px solid transparent; background: var(--velvet); cursor: pointer; overflow: hidden; opacity: .65; }
+.thumbs button[aria-pressed="true"] { border-color: var(--wine); opacity: 1; }
+.thumbs img { width: 100%; height: 100%; object-fit: cover; }
+table.price { width: 100%; border-collapse: collapse; font-style: italic; }
+table.price th, table.price td { text-align: left; padding: .7rem 0; border-bottom: 1px solid var(--line); font-weight: 300; }
+table.price td { text-align: right; font-family: var(--display); font-style: normal; font-weight: 600; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+.sheet .fine { margin: 0; font-style: italic; font-size: .92rem; color: var(--ink-soft); }
+.sheet .actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: auto; }
+.close { position: absolute; top: .6rem; right: .6rem; z-index: 2; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 0; background: var(--paper); color: var(--ink); font-size: 1.4rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+.nav-bag { display: flex; justify-content: space-between; gap: 1rem; font-style: italic; font-size: .92rem; }
+.nav-bag button { background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 700px) {
+  .sheet { grid-template-columns: 1fr; }
+  .sheet .pic img { max-height: 62dvh; aspect-ratio: auto; object-position: center; }
+}
+
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a href="index.html" aria-label="borsa, início"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"></a>
+    <nav aria-label="principal">
+      <a class="link" href="index.html">início</a>
+      <a class="link" href="catalogo.html" aria-current="page">catálogo</a>
+      <a class="link" href="#contato">contato</a>
+      <a class="btn sm" data-wa href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="rates" aria-label="valores">
+    <div class="wrap">
+      <span>aluguel de <strong>3 dias</strong> ou <strong>5 dias</strong></span>
+      <span class="tiers" id="tiers"></span>
+    </div>
+  </section>
+  <section class="catalog wrap" id="catalogo" aria-labelledby="cat-h">
+    <div class="head">
+      <h2 id="cat-h">catálogo atualizado</h2>
+      <div class="filters" id="filters" role="group" aria-label="filtrar por cor"></div>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ul class="grid" id="grid"></ul>
+  </section>
+  <section class="contact on-wine" id="contato" aria-labelledby="ct-h">
+    <img class="ghostmark" src="assets/logo-deep.png" alt="" width="1736" height="528">
+    <div class="wrap">
+      <h2 id="ct-h">alugue a sua pelo número</h2>
+      <div class="phone">+55 61 99259-1023</div>
+      <p>fale conosco para mais fotos e informações de tamanho!</p>
+      <div class="row">
+        <a class="btn" data-wa href="https://wa.me/5561992591023" target="_blank" rel="noopener">chamar no whatsapp</a>
+        <button class="btn ghost" type="button" id="copy">copiar número</button>
+      </div>
+      <p>estamos ansiosas para fazer parte do seu convite!</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"><span>aluguel de bolsas de festa</span></div></footer>
+<dialog id="dlg" aria-labelledby="d-title">
+  <button class="close" type="button" id="close" aria-label="fechar">×</button>
+  <div class="sheet">
+    <div class="pic"><img id="d-img" alt="" width="1000" height="1500"></div>
+    <div class="info">
+      <p class="kicker">bolsa</p>
+      <h3 id="d-title"></h3>
+      <div class="says" id="d-note" hidden></div>
+      <div class="thumbs" id="d-thumbs"></div>
+      <table class="price">
+        <caption class="kicker" style="text-align:left;padding-bottom:.3rem">valores do aluguel</caption>
+        <tbody>
+          <tr><th scope="row">3 dias</th><td id="d-p3"></td></tr>
+          <tr><th scope="row">5 dias</th><td id="d-p5"></td></tr>
+        </tbody>
+      </table>
+      <p class="fine">chame a gente para ver mais fotos e saber o tamanho.</p>
+      <div class="actions">
+        <a class="btn" id="d-wa" target="_blank" rel="noopener" href="https://wa.me/5561992591023">alugar esta pelo whatsapp</a>
+      </div>
+      <div class="nav-bag">
+        <button type="button" id="d-prev">← anterior</button>
+        <button type="button" id="d-next">próxima →</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+<script>
+(function () {
+  var PHONE = "5561992591023";
+  var BAGS = [
+    { n: "061", p3: 50, p5: 70, cor: "dourada", note: "a primeira de muitas…", alt: "Clutch dourada com nervuras em leque, sobre veludo vinho" },
+    { n: "083", p3: 45, p5: 63, cor: "verde", note: "fav da Letícia", alt: "Bolsa verde-oliva plissada com alça redonda dourada" },
+    { n: "011", p3: 42, p5: 58, cor: "dourada", note: "", alt: "Clutch dourada em formato de ovo, sobre bandeja prateada" },
+    { n: "021", p3: 42, p5: 58, cor: "prata", note: "clássica", alt: "Clutch prateada espelhada em formato de ovo" },
+    { n: "084", p3: 52, p5: 72, cor: "verde", note: "o tchan do look", alt: "Clutch bordada com paetês em tons de verde e fecho de cristal" },
+    { n: "031", p3: 52, p5: 72, cor: "rosa", note: "madrinha approved!", alt: "Clutch franzida rosa clara com flores bordadas em paetês" },
+    { n: "041", p3: 50, p5: 70, cor: "vermelha", note: "xodó da mamãe", alt: "Clutch de acrílico vermelho marmorizado com fecho de argolas" },
+    { n: "048", p3: 52, p5: 72, cor: "neutra", note: "preferida da Ingrid", alt: "Clutch de veludo rosé bordada, com franja de plumas" },
+    { n: "082", p3: 42, p5: 58, cor: "dourada", note: "perfeita pro brilho da noite", alt: "Bolsa piramidal coberta de paetês dourados com alça de strass" },
+    { n: "079", p3: 50, p5: 70, cor: "neutra", note: "pure elegância", alt: "Clutch oval de acrílico perolado creme com fecho dourado" },
+    { n: "091", p3: 42, p5: 58, cor: "dourada", note: "essa vai com TUDO!", alt: "Bolsa de malha metálica dourada com alça de corrente" },
+    { n: "095", p3: 50, p5: 70, cor: "vermelha", note: "queridinha do acervo ♡", alt: "Bolsa de paetês vermelhos em gota com alça de pérolas" },
+    { n: "067", p3: 52, p5: 72, cor: "rosa", note: "quem não ama uma rosinha?", alt: "Clutch retangular de acrílico rosa perolado" },
+    { n: "065", p3: 52, p5: 72, cor: "verde", note: "rouba a cena", alt: "Clutch de acrílico verde marmorizado" },
+    { n: "085", p3: 45, p5: 63, cor: "prata", note: "dá até dó de devolver", alt: "Clutch prateada de strass escuro com alça de corrente" },
+    { n: "096", p3: 50, p5: 70, cor: "neutra", note: "amada por muitas!", alt: "Clutch coberta de pétalas de cetim cor champanhe" },
+    { n: "092", p3: 52, p5: 72, cor: "dourada", note: "sua próxima escolha ♡", alt: "Clutch de cristais âmbar em formato de flor, sobre bandeja prateada" }
+  ];
+  BAGS.forEach(function (b) { b.alts = ["assets/" + b.n + ".jpg"]; });
+  var HAS_B = { "061":1,"083":1,"011":1,"084":1,"031":1,"041":1,"048":1,"082":1,"079":1,"091":1,"095":1,"067":1,"065":1,"085":1,"096":1,"092":1 };
+  BAGS.forEach(function (b) { if (HAS_B[b.n]) b.alts.push("assets/" + b.n + "-b.jpg"); });
+
+  var COLORS = [
+    ["todas", null], ["douradas", "dourada"], ["pratas", "prata"],
+    ["vermelhas", "vermelha"], ["rosas", "rosa"], ["verdes", "verde"], ["neutras", "neutra"]
+  ];
+  var brl = function (v) { return "R$" + v.toFixed(2).replace(".", ","); };
+  var $ = function (id) { return document.getElementById(id); };
+  var grid = $("grid"), count = $("count"), dlg = $("dlg");
+  var current = null, list = BAGS.slice(), idx = 0;
+
+  function waLink(text) { return "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(text); }
+  document.querySelectorAll("[data-wa]").forEach(function (a) {
+    a.href = waLink("Oi! Vi o catálogo da borsa e quero alugar uma bolsa.");
+  });
+
+  // faixa de valores
+  var prices = BAGS.map(function (b) { return b.p3; }), prices5 = BAGS.map(function (b) { return b.p5; });
+  $("tiers").innerHTML =
+    "<span>3 dias a partir de <strong>" + brl(Math.min.apply(null, prices)) + "</strong></span>" +
+    "<span>5 dias a partir de <strong>" + brl(Math.min.apply(null, prices5)) + "</strong></span>";
+
+  // filtros
+  var fwrap = $("filters");
+  COLORS.forEach(function (c, i) {
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.textContent = c[0];
+    b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    b.addEventListener("click", function () {
+      fwrap.querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+      b.setAttribute("aria-pressed", "true");
+      list = c[1] ? BAGS.filter(function (x) { return x.cor === c[1]; }) : BAGS.slice();
+      render();
+    });
+    fwrap.appendChild(b);
+  });
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]; }); }
+
+  function render() {
+    count.textContent = list.length === 1 ? "1 bolsa" : list.length + " bolsas";
+    grid.innerHTML = list.map(function (b, i) {
+      return '<li class="card"><button class="open" type="button" data-i="' + i + '" aria-label="ver bolsa ' + b.n + '">' +
+        '<div class="shot"><img class="main" src="' + b.alts[0] + '" alt="' + esc(b.alt) + '" width="1000" height="1500" loading="' + (i < 4 ? "eager" : "lazy") + '">' +
+        (b.alts[1] ? '<img class="alt" src="' + b.alts[1] + '" alt="" width="700" height="1000" loading="lazy">' : "") +
+        (b.note ? '<span class="note">' + esc(b.note) + "</span>" : "") + "</div>" +
+        '<div class="meta"><span class="num"><small>bolsa</small>' + b.n + '</span><span class="from">a partir de <b>' + brl(b.p3) + "</b></span></div>" +
+        '<p class="pricesm">3 dias ' + brl(b.p3) + " · 5 dias " + brl(b.p5) + "</p></button></li>";
+    }).join("");
+  }
+  grid.addEventListener("click", function (e) {
+    var t = e.target.closest("button.open");
+    if (t) openBag(+t.dataset.i);
+  });
+
+  // ficha
+  var photo = 0;
+  function show() {
+    var b = list[idx]; current = b; photo = 0;
+    $("d-title").textContent = b.n;
+    var note = $("d-note"); note.hidden = !b.note; note.textContent = b.note;
+    $("d-p3").textContent = brl(b.p3); $("d-p5").textContent = brl(b.p5);
+    $("d-wa").href = waLink("Oi! Quero alugar a bolsa " + b.n + " do catálogo da borsa.");
+    var th = $("d-thumbs"); th.innerHTML = "";
+    b.alts.forEach(function (src, i) {
+      if (b.alts.length < 2) return;
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.setAttribute("aria-label", "foto " + (i + 1));
+      btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+      btn.innerHTML = '<img src="' + src + '" alt="">';
+      btn.addEventListener("click", function () { setPhoto(i); });
+      th.appendChild(btn);
+    });
+    setPhoto(0);
+  }
+  function setPhoto(i) {
+    photo = i;
+    var img = $("d-img"); img.src = current.alts[i]; img.alt = i === 0 ? current.alt : "Bolsa " + current.n + " na mão";
+    $("d-thumbs").querySelectorAll("button").forEach(function (x, k) { x.setAttribute("aria-pressed", k === i ? "true" : "false"); });
+  }
+  function openBag(i) { idx = i; show(); if (!dlg.open) dlg.showModal(); }
+  function step(d) { idx = (idx + d + list.length) % list.length; show(); }
+  $("d-prev").addEventListener("click", function () { step(-1); });
+  $("d-next").addEventListener("click", function () { step(1); });
+  $("close").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft") step(-1);
+  });
+
+  // copiar número
+  $("copy").addEventListener("click", function () {
+    var btn = this, txt = "+55 61 99259-1023";
+    function done() { btn.textContent = "número copiado"; setTimeout(function () { btn.textContent = "copiar número"; }, 2000); }
+    try { navigator.clipboard.writeText(txt).then(done, function () { sel(); }); } catch (e) { sel(); }
+    function sel() {
+      var r = document.createRange(); r.selectNodeContents(document.querySelector(".contact .phone"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

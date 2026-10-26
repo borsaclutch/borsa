@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>borsa</title>
+<meta name="description" content="borsa aluga clutches e bolsas de festa por 3 ou 5 dias. Escolha a sua no catálogo e peça pelo WhatsApp.">
+<meta property="og:title" content="borsa">
+<meta property="og:description" content="Clutches e bolsas de festa para alugar por 3 ou 5 dias.">
+<meta property="og:image" content="assets/capa.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Raleway:ital,wght@0,300;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Landing: vinho de abertura com colagem de recortes, depois papel creme. Tudo em itálico leve minúsculo, como no catálogo. */
+h1, h2, h3 { font-style: italic; font-weight: 300; margin: 0; text-wrap: balance; line-height: 1.08; }
+.eyebrow { font-style: italic; font-size: .95rem; color: var(--ink-soft); margin: 0 0 .6rem; }
+.on-wine .eyebrow { color: var(--cream); opacity: .8; }
+section.pad { padding-block: clamp(3rem, 7vw, 5.5rem); }
+
+/* abertura */
+.hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+.hero h1 { font-size: clamp(2.6rem, 6.6vw, 5rem); }
+.hero .lead { margin: 1.4rem 0 2rem; max-width: 30rem; font-size: 1.12rem; font-style: italic; opacity: .92; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: .8rem; }
+.collage { position: relative; min-height: clamp(26rem, 52vw, 36rem); }
+.collage .big { position: absolute; left: 14%; top: 0; width: 62%; aspect-ratio: 2 / 3; object-fit: cover; box-shadow: 0 30px 60px -20px rgba(0,0,0,.65); }
+.collage .polaroid { position: absolute; right: 0; bottom: 6%; width: 44%; transform: rotate(4deg); }
+.collage .polaroid.two { left: 0; bottom: 0; right: auto; width: 38%; transform: rotate(-5deg); }
+.collage .note { position: absolute; right: 4%; top: 8%; transform: rotate(3deg); max-width: 9rem; }
+.collage .clip { left: 40%; top: -1.2rem; }
+.collage .clip.b { left: auto; right: 12%; bottom: calc(6% + 100% * 0); top: auto; }
+@media (max-width: 760px) { .hero .wrap { grid-template-columns: 1fr; } .collage { min-height: 30rem; max-width: 24rem; margin-inline: auto; width: 100%; } }
+
+/* passos */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; list-style: none; margin: 2.2rem 0 0; padding: 0; counter-reset: s; }
+.steps li { border-top: 1px solid var(--ink); padding-top: 1rem; counter-increment: s; }
+.steps li::before { content: counter(s); font-style: italic; font-size: 2.4rem; font-weight: 300; color: var(--accent); display: block; line-height: 1; margin-bottom: .6rem; }
+.steps h3 { font-size: 1.5rem; margin-bottom: .4rem; }
+.steps p { margin: 0; font-style: italic; color: var(--ink-soft); }
+@media (max-width: 700px) { .steps { grid-template-columns: 1fr; } }
+
+/* queridinhas */
+.fav-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; }
+.fav-head h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+.favs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; list-style: none; margin: 0; padding: 0; }
+.fav { position: relative; min-width: 0; }
+.fav a { text-decoration: none; display: block; }
+.fav .shot { position: relative; aspect-ratio: 2 / 3; background: var(--velvet); overflow: hidden; }
+.fav .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s ease; }
+.fav a:hover .shot img { transform: scale(1.04); }
+.fav .note { position: absolute; left: .7rem; top: .7rem; max-width: 72%; transform: rotate(-3deg); font-size: 1.2rem; }
+.fav:nth-child(even) .note { left: auto; right: .7rem; transform: rotate(2.5deg); }
+.fav .cap { display: flex; justify-content: space-between; gap: .6rem; padding-top: .7rem; font-style: italic; }
+.fav .cap b { font-weight: 500; }
+.fav .cap span { color: var(--ink-soft); font-size: .92rem; }
+@media (max-width: 900px) { .favs { grid-template-columns: repeat(2, 1fr); } }
+
+/* caixa */
+.box { background: var(--paper-2); }
+.box .wrap { display: grid; grid-template-columns: .8fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.box figure { margin: 0; position: relative; max-width: 24rem; justify-self: center; width: 100%; }
+.box figure img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; box-shadow: 0 24px 50px -22px rgba(0,0,0,.6); }
+.box figcaption { position: absolute; left: -1rem; bottom: 2rem; transform: rotate(-4deg); background: var(--tag); color: #fff; padding: .5rem 1rem; font-family: var(--hand); font-size: 1.5rem; line-height: 1; box-shadow: 0 6px 14px rgba(0,0,0,.35); }
+.box h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); margin-bottom: 1rem; }
+.box p { font-style: italic; font-size: 1.1rem; max-width: 30rem; margin: 0 0 1.6rem; }
+@media (max-width: 760px) { .box .wrap { grid-template-columns: 1fr; } }
+
+/* valores */
+.rates-t { margin-top: 2rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.rate { background: var(--paper); padding: 1.4rem 1.2rem 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+.rate .n { font-style: italic; font-size: .92rem; color: var(--ink-soft); }
+.rate .p { font-style: italic; font-weight: 300; font-size: 1.9rem; line-height: 1.1; font-variant-numeric: lining-nums; }
+.rate .p small { display: block; font-size: .9rem; color: var(--ink-soft); }
+.rate .b { font-style: italic; font-size: .92rem; color: var(--accent); margin-top: auto; padding-top: .6rem; }
+@media (max-width: 800px) { .rates-t { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .rates-t { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="index.html" aria-label="borsa, início"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"></a>
+    <nav aria-label="principal">
+      <a class="link" href="catalogo.html">catálogo</a>
+      <a class="link" href="#como">como funciona</a>
+      <a class="link" href="#contato">contato</a>
+      <a class="btn sm" data-wa href="https://wa.me/5561992591023" target="_blank" rel="noopener">alugar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero on-wine" aria-labelledby="h1">
+    <img class="ghostmark" src="assets/logo-deep.png" alt="" width="1736" height="528">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">aluguel de bolsas de festa</p>
+        <h1 id="h1">a bolsa certa para o seu convite</h1>
+        <p class="lead">clutches e bolsas de festa para alugar por 3 ou 5 dias. escolha a sua no catálogo e combine tudo pelo WhatsApp.</p>
+        <div class="cta">
+          <a class="btn" href="catalogo.html">ver catálogo</a>
+          <a class="btn ghost" data-wa href="https://wa.me/5561992591023" target="_blank" rel="noopener">chamar no whatsapp</a>
+        </div>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <img class="big" src="assets/061.jpg" alt="" width="1000" height="1500">
+        <img class="clip" src="assets/clip.png" alt="" width="55" height="197">
+        <div class="polaroid"><img src="assets/084-b.jpg" alt="" width="700" height="700"></div>
+        <div class="polaroid two"><img src="assets/079-b.jpg" alt="" width="700" height="700"></div>
+        <div class="note">a primeira de muitas…</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" id="como" aria-labelledby="como-h">
+    <div class="wrap">
+      <p class="eyebrow">como funciona</p>
+      <h2 id="como-h" style="font-size:clamp(2.2rem,5vw,3.4rem)">do convite à festa em três passos</h2>
+      <ol class="steps">
+        <li><h3>escolha a sua</h3><p>veja as 17 bolsas do catálogo e separe as favoritas.</p></li>
+        <li><h3>fale com a gente</h3><p>chame no WhatsApp para ver mais fotos e saber o tamanho de cada bolsa.</p></li>
+        <li><h3>3 ou 5 dias</h3><p>alugue pelo período que combina com a sua festa.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="pad" style="padding-top:0" aria-labelledby="fav-h">
+    <div class="wrap">
+      <div class="fav-head">
+        <div><p class="eyebrow">as queridinhas</p><h2 id="fav-h">quatro para começar</h2></div>
+        <a class="btn ghost" href="catalogo.html">ver as 17 bolsas</a>
+      </div>
+      <ul class="favs">
+        <li class="fav"><a href="catalogo.html"><div class="shot"><img src="assets/079.jpg" alt="Clutch oval de acrílico perolado creme com fecho dourado" width="1000" height="1500" loading="lazy"><span class="note">pure elegância</span></div><div class="cap"><b>bolsa 079</b><span>a partir de R$50,00</span></div></a></li>
+        <li class="fav"><a href="catalogo.html"><div class="shot"><img src="assets/084.jpg" alt="Clutch bordada com paetês em tons de verde e fecho de cristal" width="1000" height="1500" loading="lazy"><span class="note">o tchan do look</span></div><div class="cap"><b>bolsa 084</b><span>a partir de R$52,00</span></div></a></li>
+        <li class="fav"><a href="catalogo.html"><div class="shot"><img src="assets/031.jpg" alt="Clutch franzida rosa clara com flores bordadas em paetês" width="1000" height="1500" loading="lazy"><span class="note">madrinha approved!</span></div><div class="cap"><b>bolsa 031</b><span>a partir de R$52,00</span></div></a></li>
+        <li class="fav"><a href="catalogo.html"><div class="shot"><img src="assets/095.jpg" alt="Bolsa de paetês vermelhos em gota com alça de pérolas" width="1000" height="1500" loading="lazy"><span class="note">queridinha do acervo ♡</span></div><div class="cap"><b>bolsa 095</b><span>a partir de R$50,00</span></div></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="box pad" aria-labelledby="box-h">
+    <div class="wrap">
+      <figure>
+        <img src="assets/capa.jpg" alt="Caixa vermelha aberta com uma bolsa borsa verde, cartão e etiqueta porta lip-combo, sobre veludo vinho" width="1000" height="1500" loading="lazy">
+        <figcaption>oi, sua borsa chegou!</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">sua borsa</p>
+        <h2 id="box-h">cada bolsa chega com um cartão de boas-vindas</h2>
+        <p>dentro da caixa, a bolsa vem guardada em um saquinho da borsa, junto com um cartão para abrir a festa com carinho.</p>
+        <a class="btn" href="catalogo.html">escolher a minha</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" aria-labelledby="val-h">
+    <div class="wrap">
+      <p class="eyebrow">valores</p>
+      <h2 id="val-h" style="font-size:clamp(2.2rem,5vw,3.4rem)">quatro faixas, 3 ou 5 dias</h2>
+      <div class="rates-t">
+        <div class="rate"><span class="n">faixa 1</span><span class="p">R$42,00<small>5 dias R$58,00</small></span><span class="b">011 · 021 · 082 · 091</span></div>
+        <div class="rate"><span class="n">faixa 2</span><span class="p">R$45,00<small>5 dias R$63,00</small></span><span class="b">083 · 085</span></div>
+        <div class="rate"><span class="n">faixa 3</span><span class="p">R$50,00<small>5 dias R$70,00</small></span><span class="b">041 · 061 · 079 · 095 · 096</span></div>
+        <div class="rate"><span class="n">faixa 4</span><span class="p">R$52,00<small>5 dias R$72,00</small></span><span class="b">031 · 048 · 065 · 067 · 084 · 092</span></div>
+      </div>
+      <p class="eyebrow" style="margin-top:1rem">o primeiro valor é o aluguel de 3 dias. os números são as bolsas de cada faixa.</p>
+    </div>
+  </section>
+
+  <section class="contact on-wine" id="contato" aria-labelledby="ct-h">
+    <img class="ghostmark" src="assets/logo-deep.png" alt="" width="1736" height="528">
+    <div class="wrap">
+      <h2 id="ct-h">alugue a sua pelo número</h2>
+      <div class="phone">+55 61 99259-1023</div>
+      <p>fale conosco para mais fotos e informações de tamanho!</p>
+      <div class="row">
+        <a class="btn" data-wa href="https://wa.me/5561992591023" target="_blank" rel="noopener">chamar no whatsapp</a>
+        <button class="btn ghost" type="button" id="copy">copiar número</button>
+      </div>
+      <p>estamos ansiosas para fazer parte do seu convite!</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><img class="logo is-wine" src="assets/logo-wine.png" alt="borsa" width="1736" height="528"><img class="logo is-cream" src="assets/logo-cream.png" alt="" width="1736" height="528"><span>aluguel de bolsas de festa</span></div></footer>
+
+<script>
+(function () {
+  var PHONE = "5561992591023";
+  document.querySelectorAll("[data-wa]").forEach(function (a) {
+    a.href = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent("Oi! Vi o site da borsa e quero alugar uma bolsa.");
+  });
+  var btn = document.getElementById("copy");
+  btn.addEventListener("click", function () {
+    var txt = "+55 61 99259-1023";
+    function done() { btn.textContent = "número copiado"; setTimeout(function () { btn.textContent = "copiar número"; }, 2000); }
+    function sel() { var r = document.createRange(); r.selectNodeContents(document.querySelector(".contact .phone")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText(txt).then(done, sel); } catch (e) { sel(); }
+  });
+})();
+</script>
+</body>
+</html>

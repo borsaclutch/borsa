@@ -1,0 +1,94 @@
+/* borsa — sistema de design (extraído do catálogo em PDF). Veja design-system.html. */
+:root {
+  --cream: #fffdea;
+  --cream-2: #f6f0d6;
+  --wine: #850819;
+  --wine-deep: #600000;
+  --velvet: #0f3a2c;
+  --tag: #e4411f;
+  --postit: #d8dcd4;
+
+  --paper: var(--cream);
+  --paper-2: var(--cream-2);
+  --ink: #2a1a18;
+  --ink-soft: #6b5651;
+  --line: #e2d9b8;
+  --accent: var(--wine);
+  --on-wine: var(--cream);
+  --note-bg: #ffffff;
+  --note-ink: #1d3a2e;
+  --logo-wine: block;
+  --logo-cream: none;
+
+  --body: "Raleway", "Helvetica Neue", Arial, sans-serif;
+  --hand: "Caveat", "Segoe Print", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1a0a0d; --paper-2: #260f14; --ink: #f6eed2; --ink-soft: #b9a79f; --line: #3d1c22;
+    --accent: #ff6a45; --note-bg: #f6eed2; --logo-wine: none; --logo-cream: block;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1a0a0d; --paper-2: #260f14; --ink: #f6eed2; --ink-soft: #b9a79f; --line: #3d1c22;
+  --accent: #ff6a45; --note-bg: #f6eed2; --logo-wine: none; --logo-cream: block;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 300 1rem/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--tag); outline-offset: 3px; }
+.wrap { width: 100%; max-width: 76rem; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.it { font-style: italic; }
+
+/* logo: duas versões, uma por tema */
+.logo { display: block; height: 1.6rem; width: auto; }
+.logo.is-wine { display: var(--logo-wine); }
+.logo.is-cream { display: var(--logo-cream); }
+
+/* topo */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .8rem; }
+.top nav { display: flex; align-items: center; gap: 1.4rem; font-style: italic; font-size: .95rem; }
+.top nav a.link { text-decoration: none; }
+.top nav a.link:hover, .top nav a.link[aria-current] { text-decoration: underline; text-underline-offset: 5px; }
+@media (max-width: 560px) { .top nav a.link { display: none; } }
+
+/* botões */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; padding: .72rem 1.3rem; border-radius: 999px; border: 1px solid var(--wine); background: var(--wine); color: var(--cream); font-style: italic; font-weight: 400; font-size: .98rem; text-decoration: none; cursor: pointer; transition: background .2s, transform .2s; }
+.btn:hover { background: var(--wine-deep); transform: translateY(-1px); }
+.btn.ghost { background: transparent; color: var(--accent); border-color: var(--accent); }
+.btn.ghost:hover { background: var(--accent); color: var(--cream); }
+.btn.sm { padding: .5rem 1rem; font-size: .9rem; }
+.on-wine .btn, .btn.on-wine { background: var(--cream); color: var(--wine); border-color: var(--cream); }
+.on-wine .btn:hover, .btn.on-wine:hover { background: transparent; color: var(--cream); }
+.on-wine .btn.ghost { background: transparent; color: var(--cream); border-color: var(--cream); }
+.on-wine .btn.ghost:hover { background: var(--cream); color: var(--wine); }
+
+/* seção vinho */
+.on-wine { background: var(--wine); color: var(--cream); position: relative; overflow: hidden; }
+.on-wine .ghostmark { position: absolute; right: -4%; bottom: -8%; width: min(70%, 44rem); opacity: .9; pointer-events: none; user-select: none; }
+
+/* colagem: recortes do scrapbook da marca */
+.note { background: var(--note-bg); color: var(--note-ink); font-family: var(--hand); font-weight: 600; font-size: 1.28rem; line-height: 1.05; padding: .5rem .75rem .6rem; box-shadow: 0 5px 12px rgba(0,0,0,.35); }
+.polaroid { background: #ebe8dc; padding: .55rem .55rem 2.2rem; box-shadow: 0 14px 30px -10px rgba(0,0,0,.55); }
+.polaroid img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+.clip { position: absolute; width: 1.7rem; height: auto; }
+
+/* contato */
+.contact .wrap { position: relative; padding-block: clamp(3rem, 8vw, 6rem); display: grid; gap: 1.4rem; max-width: 46rem; margin-inline: 0; margin-left: max(0px, calc((100% - 76rem) / 2)); }
+.contact h2 { margin: 0; font-style: italic; font-weight: 300; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; text-wrap: balance; }
+.contact .phone { font-style: italic; font-weight: 300; font-size: clamp(2.2rem, 7vw, 3.6rem); line-height: 1; font-variant-numeric: lining-nums; user-select: all; }
+.contact p { margin: 0; font-style: italic; font-size: 1.1rem; }
+.contact .row { display: flex; flex-wrap: wrap; gap: .8rem; }
+footer { padding-block: 1.6rem; font-style: italic; font-size: .9rem; color: var(--ink-soft); }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1.5rem; }
+footer .logo { height: 1.2rem; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
